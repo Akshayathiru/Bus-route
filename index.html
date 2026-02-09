@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transit Directory | Home</title>
+    <title>Transit Directory | Premium Bus Guide</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,12 +15,13 @@
     </header>
 
     <main>
-        <div class="search-placeholder">
-            <input type="text" placeholder="Explore depots and major hubs below..." readonly>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for hubs or depots (e.g. Adyar, Tambaram)..."
+                onkeyup="filterHubs()">
         </div>
 
         <h2>Network Hubs</h2>
-        <div class="grid">
+        <div class="grid" id="hubsGrid">
             <a href="public/locations/adyar.html" class="card">
                 <div class="route-no">Adyar</div>
                 <div class="route-dest">ECR & South Chennai Gateway</div>
@@ -59,9 +60,27 @@
 
         <footer style="margin-top: 6rem; text-align: center; color: var(--text-muted); padding-bottom: 4rem;">
             <p style="font-weight: 700; color: var(--primary);">City Bus Registry © 2026</p>
-            <p style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--accent);">Pure HTML & CSS Implementation</p>
+            <p style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--accent);">Pure HTML & CSS Interface</p>
         </footer>
     </main>
+
+    <script>
+        function filterHubs() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const grid = document.getElementById('hubsGrid');
+            const cards = grid.getElementsByClassName('card');
+
+            for (let i = 0; i < cards.length; i++) {
+                const text = cards[i].innerText.toLowerCase();
+                if (text.includes(filter)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

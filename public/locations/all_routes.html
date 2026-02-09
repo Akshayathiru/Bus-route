@@ -4,21 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Available Bus Routes | Transit Directory</title>
+    <title>All Verified Routes | Transit Directory</title>
     <link rel="stylesheet" href="../../style.css">
 </head>
 
 <body>
     <header>
-        <h1>Direct Routes</h1>
-        <p>Verified listing of all bus routes present in the master directory.</p>
+        <h1>Verified Registry</h1>
+        <p>Complete listing of every bus route extracted from the master directory.</p>
     </header>
 
     <main>
         <a href="../../index.html" class="back-link">← Return to Dashboard</a>
 
-        <h2>All Verified Routes</h2>
-        <div class="grid">
+        <div class="search-container">
+            <input type="text" id="routeSearch" placeholder="Search by route number or destination..."
+                onkeyup="filterRoutes()">
+        </div>
+
+        <h2>Network Archive</h2>
+        <div class="grid" id="routesGrid">
             <a href="../routes/1.html" class="card">
                 <div class="route-no">01</div>
                 <div class="route-dest">Ennore</div>
@@ -219,10 +224,28 @@
 
         <div style="margin-top: 5rem; text-align: center; color: var(--text-muted);">
             <p><strong>Total Verified Routes: 49</strong></p>
-            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Only routes extracted from the official PDF are listed
-                here.</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--accent);">Verified via MTC Master Registry
+                2026</p>
         </div>
     </main>
+
+    <script>
+        function filterRoutes() {
+            const input = document.getElementById('routeSearch');
+            const filter = input.value.toLowerCase();
+            const grid = document.getElementById('routesGrid');
+            const cards = grid.getElementsByClassName('card');
+
+            for (let i = 0; i < cards.length; i++) {
+                const text = cards[i].innerText.toLowerCase();
+                if (text.includes(filter)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>
