@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routes from Manali | Bus Directory</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Manali Depot</h1>
+        <div class="search-container">
+            <input type="text" id="routeSearch" placeholder="Search routes from here..." onkeyup="filterRoutes()">
+        </div>
+    </header>
+
+    <main>
+        <a href="../../index.html" class="back-btn">Back to Locations</a>
+        <h2 style="margin-bottom: 1.5rem;">Available Routes</h2>
+
+        <div class="route-list" id="routeList">
+            <!-- Route 4 -->
+            <a href="../routes/4.html" class="route-card">
+                <div class="route-info">
+                    <span class="route-no">Route No: 4</span>
+                    <span class="route-dest">Destination: Arul Nagar via Mathur</span>
+                    <span class="route-timing">Timing: 5:35 AM at Manali Market</span>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+        </div>
+    </main>
+
+    <script>
+        function filterRoutes() {
+            const input = document.getElementById('routeSearch');
+            const filter = input.value.toUpperCase();
+            const list = document.getElementById('routeList');
+            const cards = list.getElementsByClassName('route-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                const txtValue = cards[i].textContent || cards[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

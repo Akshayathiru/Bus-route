@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transit Directory | Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Transit Directory</h1>
+        <p>A high-performance, script-free guide to our city's bus network. Fast, clear, and verified.</p>
+    </header>
+
+    <main>
+        <div class="search-placeholder">
+            <input type="text" placeholder="Explore depots and major hubs below..." readonly>
+        </div>
+
+        <h2>Network Hubs</h2>
+        <div class="grid">
+            <a href="public/locations/adyar.html" class="card">
+                <div class="route-no">Adyar</div>
+                <div class="route-dest">ECR & South Chennai Gateway</div>
+            </a>
+            <a href="public/locations/tambaram.html" class="card">
+                <div class="route-no">Tambaram</div>
+                <div class="route-dest">Suburban Transit Junction</div>
+            </a>
+            <a href="public/locations/koyambedu.html" class="card">
+                <div class="route-no">Koyambedu</div>
+                <div class="route-dest">CMBT Central Terminus</div>
+            </a>
+            <a href="public/locations/t_nagar.html" class="card">
+                <div class="route-no">T. Nagar</div>
+                <div class="route-dest">Commercial Hub Depot</div>
+            </a>
+            <a href="public/locations/avadi.html" class="card">
+                <div class="route-no">Avadi</div>
+                <div class="route-dest">Western Industrial Corridor</div>
+            </a>
+            <a href="public/locations/guindy.html" class="card">
+                <div class="route-no">Guindy</div>
+                <div class="route-dest">Industrial & Metro Interchange</div>
+            </a>
+        </div>
+
+        <h2 style="margin-top: 5rem;">Full Registry</h2>
+        <div class="grid">
+            <a href="public/locations/all_routes.html" class="card"
+                style="grid-column: 1 / -1; background: var(--primary); border: none; color: white;">
+                <div class="route-no" style="color: white; font-size: 2rem;">BROWSE ALL VERIFIED ROUTES</div>
+                <div class="route-dest" style="color: rgba(255,255,255,0.7); font-size: 1.1rem;">Access all 49 routes
+                    found in the master directory.</div>
+            </a>
+        </div>
+
+        <footer style="margin-top: 6rem; text-align: center; color: var(--text-muted); padding-bottom: 4rem;">
+            <p style="font-weight: 700; color: var(--primary);">City Bus Registry © 2026</p>
+            <p style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--accent);">Pure HTML & CSS Implementation</p>
+        </footer>
+    </main>
+</body>
+
+</html>
