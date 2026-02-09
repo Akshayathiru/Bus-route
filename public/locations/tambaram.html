@@ -4,33 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambaram Hub | Chennai Bus Directory</title>
+    <title>Tambaram Hub | Chennai Transit</title>
     <link rel="stylesheet" href="../../style.css">
 </head>
 
 <body>
     <header>
         <h1>Tambaram Junction</h1>
-        <p>The gateway to the southern suburbs.</p>
+        <p>The primary gateway to the southern suburbs and beyond.</p>
     </header>
 
     <main>
-        <a href="../../index.html" class="back-link">← Back to Hubs</a>
+        <a href="../../index.html" class="back-link">← BACK TO DASHBOARD</a>
 
-        <h2>Available Routes</h2>
-        <div class="route-list">
+        <div class="search-container">
+            <input type="text" id="routeSearch" placeholder="Filter routes at this junction..."
+                onkeyup="filterRoutes()">
+        </div>
+
+        <h2>Active Routes</h2>
+        <div class="route-list" id="routeList">
+            <a href="../routes/50.html" class="route-item">
+                <span class="route-badge">50</span>
+                <span class="route-name">Agaram Then - Camp Road</span>
+                <div class="route-meta">6:45 AM | Camp Road Line</div>
+            </a>
+            <a href="../routes/51.html" class="route-item">
+                <span class="route-badge">51</span>
+                <span class="route-name">Selaiyur - Kulam Bus Stop</span>
+                <div class="route-meta">6:42 AM | Selaiyur Connector</div>
+            </a>
             <a href="../routes/80.html" class="route-item">
                 <span class="route-badge">80</span>
                 <span class="route-name">Tambaram - Chrompet</span>
-                <div class="route-meta">6:50 AM | Main Gst Line</div>
+                <div class="route-meta">6:50 AM | Main GST Line</div>
             </a>
             <a href="../routes/85.html" class="route-item">
                 <span class="route-badge">85</span>
-                <span class="route-name">Mudichur - Tambaram</span>
-                <div class="route-meta">6:30 AM | Suburb Connector</div>
+                <span class="route-name">Krisna Nagar - Puthu Kovil</span>
+                <div class="route-meta">6:45 AM | Mudichur Corridor</div>
             </a>
         </div>
     </main>
+
+    <script>
+        function filterRoutes() {
+            const input = document.getElementById('routeSearch');
+            const filter = input.value.toUpperCase();
+            const list = document.getElementById('routeList');
+            const items = list.getElementsByClassName('route-item');
+
+            for (let i = 0; i < items.length; i++) {
+                const text = items[i].innerText.toUpperCase();
+                items[i].style.display = text.includes(filter) ? "" : "none";
+            }
+        }
+    </script>
 </body>
 
 </html>

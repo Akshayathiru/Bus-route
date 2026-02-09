@@ -4,36 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Routes from Chrompet | Bus Directory</title>
+    <title>Routes from Chrompet | Chennai Transit</title>
     <link rel="stylesheet" href="../../style.css">
 </head>
 
 <body>
     <header>
         <h1>Chrompet Depot</h1>
-        <div class="search-container">
-            <input type="text" id="routeSearch" placeholder="Search routes from here..." onkeyup="filterRoutes()">
-        </div>
+        <p>Strategic transit hub serving the southern city limits.</p>
     </header>
 
     <main>
-        <a href="../../index.html" class="back-btn">Back to Locations</a>
-        <h2 style="margin-bottom: 1.5rem;">Available Routes</h2>
+        <a href="../../index.html" class="back-link">← BACK TO DASHBOARD</a>
+
+        <div class="search-container">
+            <input type="text" id="routeSearch" placeholder="Filter routes at this hub..." onkeyup="filterRoutes()">
+        </div>
+
+        <h2>Active Routes</h2>
 
         <div class="route-list" id="routeList">
-            <!-- Route 80 -->
-            <a href="../routes/80.html" class="route-card">
-                <div class="route-info">
-                    <span class="route-no">Route No: 80</span>
-                    <span class="route-dest">Destination: Tambaram / Pammal</span>
-                    <span class="route-timing">Timing: 6:50 AM at Chrompet</span>
-                </div>
-                <div class="arrow">→</div>
+            <a href="../routes/52.html" class="route-item">
+                <span class="route-badge">52</span>
+                <span class="route-name">Citlapakkam - Nagalkani</span>
+                <div class="route-meta">6:47 AM | Citlapakkam Line</div>
             </a>
-
-            <!-- Other routes passing through Chrompet (Inferred from common knowledge and PDF structure if available) -->
-            <!-- Note: PDF Page 1 Route 21G pass through Chrompet (from search) but PDF shows route 1, 2, 3, 40 etc. -->
-            <!-- Let's stick strictly to PDF data even if sparse for specific depots -->
+            <a href="../routes/80.html" class="route-item">
+                <span class="route-badge">80</span>
+                <span class="route-name">Tambaram - Chrompet</span>
+                <div class="route-meta">6:50 AM | GST Corridor</div>
+            </a>
         </div>
     </main>
 
@@ -42,15 +42,11 @@
             const input = document.getElementById('routeSearch');
             const filter = input.value.toUpperCase();
             const list = document.getElementById('routeList');
-            const cards = list.getElementsByClassName('route-card');
+            const items = list.getElementsByClassName('route-item');
 
-            for (let i = 0; i < cards.length; i++) {
-                const txtValue = cards[i].textContent || cards[i].innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    cards[i].style.display = "";
-                } else {
-                    cards[i].style.display = "none";
-                }
+            for (let i = 0; i < items.length; i++) {
+                const text = items[i].innerText.toUpperCase();
+                items[i].style.display = text.includes(filter) ? "" : "none";
             }
         }
     </script>
